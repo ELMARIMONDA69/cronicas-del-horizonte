@@ -36,11 +36,6 @@
             top: 0;
             z-index: 1000;
         }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
         .nav-brand h1 {
             font-size: 1.2rem;
             color: var(--gold-light);
@@ -73,12 +68,12 @@
             cursor: pointer;
         }
 
-        /* Hero / Portada */
+        /* Hero / Portada Estilo Anime / Pastizales */
         .hero {
             position: relative;
-            background: linear-gradient(to bottom, rgba(11,15,23,0.3), var(--bg-main)), 
-                        url('https://images.openai.com/static-rsc-4/FU5RYVZ0efv9GHKvWTzxZu2oValerCwYa35xrOwNbp0cvyK3e7HXALA2wUSUSUF4IB1875_AxnAXKAp4QsIoAKc6P5JCXD5p0FzWi3NOMfvWZK1BMOAOn6hTVLILj6aK0TJ5_jtwnzuuM5Cf7PN3BJdQVvf3foflgW0yVAz4oWU7qK3mrbBmHpfYt4ryyLwP?purpose=fullsize') center/cover no-repeat;
-            padding: 120px 20px;
+            background: linear-gradient(rgba(11, 15, 23, 0.4), rgba(11, 15, 23, 0.8)), 
+                        url('https://images.openai.com/static-rsc-4/5bAYS_vIUAUt42ignQgFQnU70HQpoAkltisacIF_M2FEwaRlds1OUk7Dilf94s3u8JQTzMYpaoVm_ynYplh3hbBtM2sojmTpY-eGUxtUALza_5xSYHk4KvU-5jd4Ww-gnzOSxm_c-VFFJPezjIwuBhmCdve8ZS1_usLNBpPpAaSWfdlt_DPfX4oT7zSzpAIw?purpose=fullsize') center/cover no-repeat;
+            padding: 130px 20px;
             text-align: center;
             border-bottom: 2px solid var(--border-gold);
         }
@@ -87,21 +82,24 @@
             margin: 0 auto;
         }
         .hero h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--gold-light);
             margin-bottom: 20px;
             letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
         .hero p {
             font-size: 1.15rem;
-            color: var(--text-muted);
+            color: #e5e7eb;
             margin-bottom: 30px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
         }
         .btn-primary {
             display: inline-block;
             padding: 12px 30px;
             border: 1px solid var(--border-gold);
             color: var(--gold-light);
+            background: rgba(11, 15, 23, 0.6);
             text-decoration: none;
             border-radius: 4px;
             transition: background 0.3s, color 0.3s;
@@ -161,6 +159,39 @@
             background-size: cover;
             background-position: center;
         }
+
+        /* Animación especial para el libro flotante (Historias) */
+        .floating-container {
+            height: 140px;
+            background-color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .floating-book {
+            width: 70px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37, #9a7b21);
+            border-radius: 4px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            animation: floatAnim 3s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .floating-book::before {
+            content: '📖';
+            font-size: 1.8rem;
+        }
+        @keyframes floatAnim {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
         .card-body {
             padding: 20px;
         }
@@ -188,11 +219,6 @@
             padding: 20px;
             margin-bottom: 30px;
         }
-        .sidebar-card h3 {
-            color: var(--gold-light);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
         .featured-img {
             width: 100%;
             height: 160px;
@@ -219,10 +245,8 @@
     <!-- Navegación -->
     <nav>
         <div class="nav-brand">
-            <div>
-                <h1>Crónicas del Horizonte</h1>
-                <p>Un universo. Infinitas historias.</p>
-            </div>
+            <h1>Crónicas del Horizonte</h1>
+            <p>Un universo. Infinitas historias.</p>
         </div>
         <ul class="nav-links">
             <li><a href="#" class="active">Inicio</a></li>
@@ -238,7 +262,7 @@
         </div>
     </nav>
 
-    <!-- Portada Hero -->
+    <!-- Portada Hero (Estilo Anime / Pastizales) -->
     <header class="hero">
         <div class="hero-content">
             <h2>Bienvenido a las Crónicas del Horizonte</h2>
@@ -253,7 +277,7 @@
             <h2 class="section-title">✨ Explora el contenido</h2>
             
             <div class="grid-cards">
-                <!-- Universo -->
+                <!-- 1. El Universo (Mapa) -->
                 <div class="card">
                     <div class="card-img" style="background-image: url('https://images.openai.com/static-rsc-4/KU9t2r81yoyF_DaeQ0OgGSC6r0J0FsewrGW2ISP9JtgsGegCjO1SYPMioEIconNfK0WxUkHDFCXK31-u46VPyQYN6ZTZS1TuPtf27t0AKeZeHyOOhSFhnLMeVm4Qc4nBfE1PjvccHfrGtm0KYztObozdMLfM7Jeg4CgVYaIKGoImJs1-h-3gjno1I89VykWR?purpose=fullsize');"></div>
                     <div class="card-body">
@@ -263,19 +287,21 @@
                     </div>
                 </div>
 
-                <!-- Personajes -->
+                <!-- 2. Personajes (Bocetos de hombre perro, pato, etc.) -->
                 <div class="card">
                     <div class="card-img" style="background-image: url('https://images.openai.com/static-rsc-4/P4tEjD_c9G6moEnNjxJSLwDfHlEmY7zWb4hOAOoFOatErBy_3U9D-kk23PuoTNkKdH2EENqSb9VqMJEsz6mw31dMLRCzg39zhVPZbpCVCNDfN8cGlknKWSjZVJD_5So6_P_s5Sp2CRh6VyFJ2k6ZwTIoxjgnErpxWyhed0Fd9BQ8ElO8FayVrWZeAJJBq00x?purpose=fullsize');"></div>
                     <div class="card-body">
                         <h3>Personajes</h3>
-                        <p>Descubre las vidas, motivaciones y secretos de quienes dan forma a esta historia.</p>
+                        <p>Descubre bocetos, diseños conceptuales, el hombre perro, el hombre pato y más.</p>
                         <a href="#" class="card-link">Explorar →</a>
                     </div>
                 </div>
 
-                <!-- Historias -->
+                <!-- 3. Historias (Libro levitando con animación) -->
                 <div class="card">
-                    <div class="card-img" style="background-image: url('https://images.openai.com/static-rsc-4/D8iFSWfuupm8_RS9MFS6PbixpnSjrQOJ16dXplZSomUptrRQo8dENNIPo2StKUqMJG1NqRBIyrQQcWY48NGF-kMFMnKlPuJlgqyHe932C3DTk8U1gLvlJ_i9Y2W8C7bzhzEAS2_QduNyE6odv0LZsySBgmQD-pDuxJMoqMX9kPnN54-5VMk8F4UXGRfPW8xz?purpose=fullsize');"></div>
+                    <div class="floating-container">
+                        <div class="floating-book"></div>
+                    </div>
                     <div class="card-body">
                         <h3>Historias</h3>
                         <p>Lee relatos, crónicas y narrativas desde diferentes perspectivas.</p>
@@ -285,13 +311,14 @@
             </div>
         </div>
 
-        <!-- Sidebar Lateral -->
+        <!-- Sidebar Lateral (Artículo destacado: Castillo destrozado) -->
         <aside>
             <div class="sidebar-card">
                 <h3 style="font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Artículo destacado</h3>
-                <div class="featured-img" style="background-image: url('https://images.openai.com/static-rsc-4/FU5RYVZ0efv9GHKvWTzxZu2oValerCwYa35xrOwNbp0cvyK3e7HXALA2wUSUSUF4IB1875_AxnAXKAp4QsIoAKc6P5JCXD5p0FzWi3NOMfvWZK1BMOAOn6hTVLILj6aK0TJ5_jtwnzuuM5Cf7PN3BJdQVvf3foflgW0yVAz4oWU7qK3mrbBmHpfYt4ryyLwP?purpose=fullsize');"></div>
+                <!-- Castillo destrozado -->
+                <div class="featured-img" style="background-image: url('https://images.openai.com/static-rsc-4/D8iFSWfuupm8_RS9MFS6PbixpnSjrQOJ16dXplZSomUptrRQo8dENNIPo2StKUqMJG1NqRBIyrQQcWY48NGF-kMFMnKlPuJlgqyHe932C3DTk8U1gLvlJ_i9Y2W8C7bzhzEAS2_QduNyE6odv0LZsySBgmQD-pDuxJMoqMX9kPnN54-5VMk8F4UXGRfPW8xz?purpose=fullsize');"></div>
                 <h3 style="margin-bottom: 8px;">La caída de Arkanis</h3>
-                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Un análisis profundo sobre el día que cambió el destino del continente y el inicio de una nueva era.</p>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Un análisis profundo sobre el día en que las fortalezas cayeron y cambiaron el destino del continente.</p>
                 <a href="#" class="card-link">Leer artículo →</a>
             </div>
         </aside>
